@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7e8">
+  <title>Ruang Ceria — Portal Game TK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../beranda/style.css">
+
+<script src="../ruang-ceria-config.js"></script>
+<script src="../ruang-ceria-client.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main id="loginView" class="login-wrap">
+    <section class="login-card">
+      <div class="brand-mark">🌈</div>
+      <p class="eyebrow">SELAMAT DATANG DI</p>
+      <h1>Ruang <span>Ceria</span></h1>
+      <p class="login-subtitle">Tempat bermain, belajar, dan tumbuh bersama!</p>
+      <form id="loginForm">
+        <label for="username">Nama pengguna</label>
+        <input id="username" name="username" autocomplete="username" placeholder="Masukkan nama pengguna" required>
+        <label for="password">Kata sandi</label>
+        <div class="password-wrap">
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required>
+          <button id="togglePassword" class="show-password" type="button" aria-label="Tampilkan kata sandi">👁</button>
+        </div>
+        <p id="loginError" class="login-error" role="alert"></p>
+        <button class="primary-button login-button" type="submit">Masuk ke Ruang Ceria <span>→</span></button>
+      </form>
+      <p class="login-footnote">Portal belajar untuk anak usia dini ✨</p>
+    </section>
+    <p class="tiny-note">Akses satu pintu untuk 7 permainan belajar 🌟</p>
+  </main>
+
+  <div id="appView" class="app-view hidden">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ruang Ceria beranda"><span class="brand-icon">🌈</span><span>Ruang <b>Ceria</b><small>PORTAL BELAJAR ANAK</small></span></a>
+      <div class="topbar-actions">
+        <span class="welcome-chip">👋 Hai, <b id="displayUser">Teman</b>!</span>
+        <a class="logout-button" href="../laporan.html">Laporan Nilai</a>
+        <button id="logoutButton" class="logout-button" type="button">Keluar ↗</button>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="hero-pill">✨ BELAJAR JADI PETUALANGAN</span>
+        <h1>Halo, teman kecil!<br><span>Mau bermain apa hari ini?</span></h1>
+        <p>Pilih permainan favoritmu. Yuk, belajar sambil bersenang-senang!</p>
+        <div class="hero-stats">
+          <div class="stat-icon">🎮</div><div><strong>7 permainan seru</strong><small>Temukan hal baru setiap hari</small></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="sun">☀️</div><div class="rainbow">🌈</div><div class="cloud cloud-a">☁️</div><div class="cloud cloud-b">☁️</div><div class="star star-a">⭐</div><div class="star star-b">✨</div><div class="kite">🪁</div></div>
+    </section>
+    <section class="profile-panel" aria-labelledby="profileTitle">
+      <div class="profile-copy">
+        <p class="eyebrow">PROFIL PEMAIN</p>
+        <h2 id="profileTitle">Siapa yang akan bermain?</h2>
+        <p>Gunakan nama panggilan atau inisial agar hasil setiap anak tercatat terpisah. Jangan masukkan data pribadi lengkap.</p>
+      </div>
+      <div class="profile-fields">
+        <label for="studentName">Nama panggilan siswa</label>
+        <input id="studentName" maxlength="24" placeholder="Contoh: Aisyah">
+        <label for="studentClass">Kelas (opsional)</label>
+        <input id="studentClass" maxlength="30" placeholder="Contoh: TK A">
+        <button id="saveStudentProfile" class="primary-button" type="button">Simpan profil pemain</button>
+        <small id="profileStatus" role="status"></small>
+      </div>
+    </section>
+    <section class="games-section">
+      <div class="section-heading"><div><p class="eyebrow">PILIH PETUALANGANMU</p><h2>Jelajahi dunia ceria <span>🚀</span></h2></div><div class="game-count"><b>07</b> GAME</div></div>
+      <div class="toolbar">
+        <label class="search-box"><span>🔎</span><input id="gameSearch" type="search" placeholder="Cari permainan..." aria-label="Cari permainan"></label>
+        <span class="hint">Pilih kartu untuk mulai bermain</span>
+      </div>
+      <div id="gameGrid" class="game-grid"></div>
+      <p id="emptyState" class="empty-state hidden">Belum ada game yang cocok. Coba kata kunci lain ya! 🌻</p>
+    </section>
+    <footer><span>🌼 <b>Ruang Ceria</b> — Belajar, bermain, bertumbuh.</span><span>Dibuat untuk menemani petualangan belajar anak TK 💛</span></footer>
+  </div>
+  <script src="../beranda/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#8bd8f7">
+  <title>Dunia Hewan 3D — Belajar Sambil Bermain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+<script src="../ruang-ceria-config.js"></script>
+<script src="../ruang-ceria-client.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home"><span class="brand-icon">🦁</span><span>Dunia Hewan <small>3D • Belajar sambil bermain</small></span></a>
+    <nav>
+      <button class="nav-btn active" data-page="home">🏡 Beranda</button>
+      <button class="nav-btn" data-page="animals">🐾 Kenali Hewan</button>
+      <button class="nav-btn" data-page="games">🎮 Permainan</button>
+      <button class="nav-btn" data-page="progress">⭐ Bintangku</button>
+    </nav>
+    <div class="top-actions"><button class="sound-toggle" id="soundToggle" aria-label="Aktifkan atau nonaktifkan suara">🔊 Suara</button><a class="teacher-link" href="teacher.html">👩‍🏫 Area Guru</a></div>
+  </header>
+
+  <main id="app">
+    <section class="hero page-section" id="page-home">
+      <div class="hero-copy">
+        <span class="eyebrow">🌈 PETUALANGAN DIMULAI!</span>
+        <h1>Yuk, kenali <span>dunia hewan!</span></h1>
+        <p>Temui teman-teman berbulu, bersayap, dan yang tinggal di laut. Belajar jadi lebih seru lewat permainan!</p>
+        <div class="hero-buttons"><button class="btn btn-primary" data-page="games">🎮 Mulai Bermain</button><button class="btn btn-light" data-page="animals">🐘 Kenali Hewan</button></div>
+        <div class="hero-stats"><div><strong id="homeStars">0 ⭐</strong><span>Bintang terkumpul</span></div><div><strong id="homeGames">0</strong><span>Permainan selesai</span></div></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi hewan lucu">
+        <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+        <div class="floating-bubble bubble-one">✨</div><div class="floating-bubble bubble-two">💚</div>
+        <div class="animal-hero lion">🦁</div><div class="animal-hero elephant">🐘</div><div class="animal-hero giraffe">🦒</div>
+        <div class="grass"></div><div class="hero-label">Teman hewan menunggumu!</div>
+      </div>
+    </section>
+
+    <section class="section page-section" id="page-animals" hidden>
+      <div class="section-heading"><div><span class="eyebrow">KENALI TEMAN BARU</span><h2>Galeri Hewan 🐾</h2><p>Tekan kartu untuk mengenal hewan dan mendengarkan namanya.</p></div><div class="filter-wrap"><label for="animalFilter">Kategori</label><select id="animalFilter"><option value="Semua">Semua hewan</option><option>Peliharaan</option><option>Ternak</option><option>Liar</option><option>Air</option><option>Terbang</option></select></div></div>
+      <div class="animal-grid" id="animalGrid"></div>
+    </section>
+
+    <section class="section page-section" id="page-games" hidden>
+      <div class="section-heading"><div><span class="eyebrow">MAIN SAMBIL BELAJAR</span><h2>Pilih Permainan 🎮</h2><p>Setiap jawaban adalah kesempatan untuk belajar hal baru.</p></div></div>
+      <div class="game-grid" id="gameGrid"></div>
+      <div class="game-stage" id="gameStage" hidden></div>
+    </section>
+
+    <section class="section page-section" id="page-progress" hidden>
+      <div class="section-heading"><div><span class="eyebrow">KERJA BAGUS!</span><h2>Bintangku ⭐</h2><p>Lihat perjalanan belajarmu. Kamu hebat sudah mencoba!</p></div></div>
+      <div class="progress-overview"><div class="big-star">⭐</div><div><span class="muted">Total bintang</span><h2 id="progressStars">0</h2><p id="progressMessage">Ayo main dan kumpulkan bintang pertamamu!</p></div></div>
+      <h3>Riwayat permainan</h3><div id="historyList" class="history-list"></div>
+      <button class="btn btn-light" data-page="games">🎮 Main lagi</button>
+    </section>
+  </main>
+  <footer><span>🦋 Dunia Hewan 3D</span><span>Dibuat untuk belajar dengan gembira • <span id="year"></span></span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

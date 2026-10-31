@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7c6cf2">
+  <meta name="description" content="Game belajar membaca untuk anak TK: huruf, suku kata, kata, dan kalimat.">
+  <title>Dunia Ceria — Belajar Baca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <?!= include('Styles'); ?>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" id="homeBrand" aria-label="Kembali ke beranda">
+        <span class="brand-mark">📚</span><span>Dunia<span class="brand-purple">Ceria</span><small>BELAJAR SAMBIL BERMAIN</small></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-btn" id="soundToggle" aria-label="Matikan suara" aria-pressed="true"><span id="soundIcon" aria-hidden="true">🔊</span> <span>Suara</span></button>
+        <button class="profile-pill" id="profileButton" aria-haspopup="dialog"><span class="avatar-mini" id="profileAvatar">🐻</span><span id="profileLabel">Teman Belajar</span></button>
+      </div>
+    </header>
+
+    <noscript><div class="noscript">Game ini membutuhkan JavaScript. Mohon aktifkan JavaScript di browser Anda.</div></noscript>
+
+    <main id="main" tabindex="-1">
+      <section id="homeView" class="view active" aria-label="Beranda">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow"><span class="sparkle">✦</span> PETUALANGAN BARU MENANTI</span>
+            <h1>Yuk, belajar baca<br><span>dengan ceria!</span></h1>
+            <p id="heroHello">Hai, teman kecil! Bimo sudah siap menemanimu mengenal huruf, membaca kata, dan mengumpulkan bintang.</p>
+            <button class="primary-btn" id="startLearning">Mulai Belajar <span>➜</span></button>
+            <div class="hero-proof"><span>⭐</span><span>Belajar seru setiap hari!</span><span class="proof-dot">•</span><span>Untuk usia 4–6 tahun</span></div>
+          </div>
+          <div class="hero-art" role="img" aria-label="Maskot beruang belajar">
+            <div class="sun-disc"></div><div class="float-shape shape-one">A</div><div class="float-shape shape-two">★</div>
+            <div class="book-float">📖</div><div class="hero-bear" id="heroBear">🐻</div>
+            <div class="hero-caption"><span class="caption-star">✦</span><div><b>Halo, teman!</b><small>Ayo kita belajar bersama!</small></div></div>
+          </div>
+        </div>
+
+        <section class="progress-strip" aria-label="Ringkasan progres">
+          <div class="progress-intro"><span class="progress-icon">🏆</span><div><b>Perjalanan Hebatmu</b><small id="levelTitle">Penjelajah Baru</small></div></div>
+          <div class="progress-stat"><strong id="homeStars">0</strong><span>⭐ Bintang</span></div>
+          <div class="progress-stat"><strong id="homeStreak">0</strong><span>🔥 Hari beruntun</span></div>
+          <div class="progress-stat"><strong id="homeDone">0/6</strong><span>🎯 Modul selesai</span></div>
+          <div class="progress-meter"><div class="meter-label"><span>Progres belajar</span><b id="progressPercent">0%</b></div><div class="meter-track" role="progressbar" aria-label="Progres belajar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar"><div id="progressFill" class="meter-fill"></div></div></div>
+        </section>
+
+        <div class="section-heading"><div><span class="eyebrow">PILIH PETUALANGANMU</span><h2>Mau belajar apa hari ini?</h2></div><span class="heading-doodle" aria-hidden="true">✦ ✧</span></div>
+        <div class="module-grid">
+          <button class="module-card card-purple" data-module="huruf"><span class="module-emoji" aria-hidden="true">🔤</span><span class="module-number">01</span><b>Kenal Huruf</b><small>A sampai Z</small><span class="card-arrow" aria-hidden="true">↗</span></button>
+          <button class="module-card card-blue" data-module="suku"><span class="module-emoji" aria-hidden="true">🧩</span><span class="module-number">02</span><b>Suku Kata</b><small>BA, BI, BU...</small><span class="card-arrow" aria-hidden="true">↗</span></button>
+          <button class="module-card card-pink" data-module="kata"><span class="module-emoji" aria-hidden="true">🧸</span><span class="module-number">03</span><b>Baca Kata</b><small>BOLA, BUKU...</small><span class="card-arrow" aria-hidden="true">↗</span></button>
+          <button class="module-card card-yellow" data-module="susun"><span class="module-emoji" aria-hidden="true">🧱</span><span class="module-number">04</span><b>Susun Kata</b><small>Jadi kata utuh</small><span class="card-arrow" aria-hidden="true">↗</span></button>
+          <button class="module-card card-green" data-module="kalimat"><span class="module-emoji" aria-hidden="true">📖</span><span class="module-number">05</span><b>Baca Kalimat</b><small>Kalimat sederhana</small><span class="card-arrow" aria-hidden="true">↗</span></button>
+          <button class="module-card card-orange" data-module="kuis"><span class="module-emoji" aria-hidden="true">🎯</span><span class="module-number">06</span><b>Kuis Pintar</b><small>Uji kemampuanmu</small><span class="card-arrow" aria-hidden="true">↗</span></button>
+        </div>
+
+        <section class="badge-shelf" aria-label="Koleksi lencana">
+          <div class="section-heading small"><div><span class="eyebrow">KOLEKSI LENCANA</span><h2>Hadiah untuk anak hebat</h2></div><span class="badge-count" id="badgeCount">0/8</span></div>
+          <div class="badge-grid" id="badgeGrid"></div>
+        </section>
+
+        <div class="bottom-banner"><div class="banner-mascot">🦊</div><div><b>Ingat ya, belajar itu tidak harus buru-buru!</b><p>Pelan-pelan saja. Kamu hebat karena terus mencoba. 💛</p></div><span class="banner-stars" aria-hidden="true">✦ ✦ ✦</span></div>
+      </section>
+
+      <section id="gameView" class="view" aria-label="Permainan">
+        <div class="game-top"><button class="back-btn" id="backHome">← Beranda</button><div class="game-progress"><span id="gameStepLabel">Petualangan</span><div class="mini-track"><div id="gameProgressFill"></div></div></div><div class="game-stars">⭐ <b id="gameStars">0</b></div></div>
+        <div class="game-heading"><span class="eyebrow" id="gameEyebrow">AYO MULAI</span><h2 id="gameTitle">Kenal Huruf</h2><p id="gameDescription">Kenali huruf dan dengarkan bunyinya.</p></div>
+        <div id="gameContent" class="game-content"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <div class="game-footer"><button class="secondary-btn" id="speakButton">🔊 Dengarkan</button><button class="primary-btn" id="nextButton" disabled>Lanjut <span>➜</span></button></div>
+        <p class="key-hint">Tips: tekan angka 1–4 untuk memilih jawaban, Enter untuk lanjut.</p>
+      </section>
+
+      <section id="resultView" class="view" aria-label="Hasil">
+        <div class="result-card"><div class="confetti" id="confetti" aria-hidden="true"></div><div class="result-trophy" aria-hidden="true">🏆</div><span class="eyebrow" id="resultEyebrow">KAMU LUAR BIASA!</span><h2 id="resultTitle">Hebat sekali!</h2><div class="result-rating" id="resultRating" aria-hidden="true"></div><p id="resultMessage">Kamu sudah menyelesaikan petualangan.</p><div class="result-score"><div><strong id="resultStars">0</strong><span>⭐ Bintang</span></div><div><strong id="resultCorrect">0/0</strong><span>🎯 Jawaban benar</span></div></div><div id="resultBadges" class="result-badges"></div><button class="secondary-btn retry-btn" id="retryMissed" hidden>🔁 Latih yang salah</button><button class="primary-btn" id="resultHome">Kembali ke Beranda <span>➜</span></button><button class="text-btn" id="playAgain">Main Lagi</button></div>
+      </section>
+
+      <section id="teacherView" class="view" aria-label="Area guru">
+        <div class="game-top"><button class="back-btn" id="teacherBack">← Beranda</button><span class="eyebrow">AREA ORANG TUA & GURU</span></div>
+        <div class="game-heading"><h2>Dashboard Belajar</h2><p>Ringkasan aktivitas belajar yang tersimpan di Google Sheets.</p></div>
+        <div id="teacherContent" class="teacher-content"></div>
+      </section>
+    </main>
+    <footer><span>© Dunia Ceria</span><span>Dibuat dengan 💜 untuk teman-teman kecil</span><button id="teacherLink" class="footer-link">Area Guru</button></footer>
+  </div>
+
+  <div id="profileModal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+      <button class="modal-close" id="profileClose" aria-label="Tutup">✕</button>
+      <h3 id="profileTitle">Profil Teman Belajar</h3>
+      <label class="field-label" for="nickInput">Nama panggilan</label>
+      <input id="nickInput" maxlength="14" autocomplete="off" placeholder="Misal: Adi">
+      <span class="field-label">Pilih teman belajar</span>
+      <div class="avatar-grid" id="avatarGrid" role="radiogroup" aria-label="Pilih teman belajar"></div>
+      <div class="code-box"><small>Kode belajar</small><b id="codeLabel">-</b></div>
+      <p class="modal-note">Nama dan teman belajar hanya tersimpan di perangkat ini. Yang dikirim ke guru hanya kode belajar dan skor.</p>
+      <div class="modal-actions"><button class="primary-btn" id="profileSave">Simpan</button><button class="text-btn danger" id="resetProgress">Mulai dari awal</button></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <?!= include('Scripts'); ?>
+</body>
+</html>

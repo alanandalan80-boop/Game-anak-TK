@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#78c8f5">
+  <title>Petualangan Keluarga Ceria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+<script src="../ruang-ceria-config.js"></script>
+<script src="../ruang-ceria-client.js"></script>
+</head>
+<body>
+  <div class="sky-decor decor-one">☁️</div><div class="sky-decor decor-two">⭐</div><div class="sky-decor decor-three">☁️</div>
+  <header class="topbar">
+    <a class="brand" href="#" data-home><span class="brand-icon">🏡</span><span>Keluarga<span class="brand-color">Ceria</span><small>Belajar sambil bermain!</small></span></a>
+    <div class="top-actions"><button id="soundToggle" class="icon-button" aria-label="Aktifkan atau matikan suara">🔊 Suara</button><button class="icon-button adult-entry" id="adultEntry">👩‍🏫 Guru</button></div>
+  </header>
+
+  <main id="app" class="app-shell">
+    <section id="homeScreen" class="screen active">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">🌈 Ayo belajar bersama!</span>
+          <h1>Petualangan<br><span>Keluarga Ceria</span></h1>
+          <p>Kenali ayah, ibu, kakak, adik, kakek, dan nenek lewat permainan seru!</p>
+          <div class="hero-buttons"><button class="btn btn-primary" data-screen="gamesScreen">🎮 Mulai Bermain</button><button class="btn btn-secondary" data-screen="learnScreen">📚 Belajar Dulu</button></div>
+          <div class="tiny-note">✨ Tidak perlu terburu-buru. Kita belajar dengan gembira!</div>
+        </div>
+        <div class="family-illustration" aria-label="Ilustrasi keluarga bahagia">
+          <div class="sun">☀️</div><div class="rainbow">🌈</div>
+          <div class="family-row"><div class="person p-dad"><span>👨</span><b>Ayah</b></div><div class="person p-mom"><span>👩</span><b>Ibu</b></div><div class="person p-child"><span>🧒</span><b>Kakak</b></div><div class="person p-kid"><span>👧</span><b>Adik</b></div></div>
+          <div class="grass">🌼 🌷 🌱 🌻 🌱 🌷 🌼</div>
+          <div class="speech-bubble">Keluarga saling menyayangi! 💗</div>
+        </div>
+      </div>
+      <div class="feature-row"><div class="feature-card"><span>🧩</span><b>5 Permainan</b><small>Seru dan mudah</small></div><div class="feature-card"><span>🔊</span><b>Suara Bahasa</b><small>Dengarkan pertanyaan</small></div><div class="feature-card"><span>⭐</span><b>Kumpulkan Bintang</b><small>Setiap usaha berarti</small></div></div>
+    </section>
+
+    <section id="learnScreen" class="screen">
+      <div class="section-heading"><button class="back-button" data-screen="homeScreen">← Kembali</button><div><span class="eyebrow">📚 Kenali mereka</span><h2>Ayo Kenal Anggota Keluarga!</h2><p>Sentuh kartu untuk mendengar nama dan penjelasannya.</p></div></div>
+      <div id="learnGrid" class="learn-grid"></div>
+    </section>
+
+    <section id="gamesScreen" class="screen">
+      <div class="section-heading"><button class="back-button" data-screen="homeScreen">← Kembali</button><div><span class="eyebrow">🎲 Pilih petualangan</span><h2>Mau Bermain Apa Hari Ini?</h2><p>Pilih permainan yang kamu suka. Yuk, coba semuanya!</p></div></div>
+      <div class="game-menu">
+        <button class="game-tile tile-pink" data-game="guess"><span class="tile-emoji">🕵️</span><span><b>Tebak Gambar</b><small>Siapa ya ini?</small></span><span class="tile-arrow">➜</span></button>
+        <button class="game-tile tile-blue" data-game="match"><span class="tile-emoji">🧩</span><span><b>Pasangkan Gambar</b><small>Cari pasangan yang cocok</small></span><span class="tile-arrow">➜</span></button>
+        <button class="game-tile tile-yellow" data-game="find"><span class="tile-emoji">🔎</span><span><b>Siapakah yang Kucari?</b><small>Dengarkan lalu pilih</small></span><span class="tile-arrow">➜</span></button>
+        <button class="game-tile tile-green" data-game="sort"><span class="tile-emoji">🧺</span><span><b>Kelompokkan Keluarga</b><small>Kenali yang lebih tua atau muda</small></span><span class="tile-arrow">➜</span></button>
+        <button class="game-tile tile-purple" data-game="quiz"><span class="tile-emoji">🏆</span><span><b>Kuis Keluarga Ceria</b><small>Jawab 5 pertanyaan</small></span><span class="tile-arrow">➜</span></button>
+      </div>
+      <div class="mini-stats"><div>⭐ Total bintang <strong id="homeStars">0</strong></div><div>🎮 Permainan selesai <strong id="homePlayed">0</strong></div></div>
+    </section>
+
+    <section id="playScreen" class="screen">
+      <div class="play-top"><button class="back-button" id="exitGame">← Menu permainan</button><div class="score-pill">⭐ <span id="liveScore">0</span> poin</div></div>
+      <div id="gameArea" class="game-area"></div>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="result-card"><div class="confetti" aria-hidden="true">🎉 ✨ 🎊 ⭐ 🎉</div><div class="trophy">🏆</div><span class="eyebrow">Petualangan selesai!</span><h2>Hebat Sekali!</h2><p id="resultMessage">Kamu sudah berusaha dengan baik.</p><div class="result-score"><div><strong id="resultPoints">0</strong><small>Poin</small></div><div><strong id="resultCorrect">0</strong><small>Jawaban benar</small></div><div><strong id="resultStars">0</strong><small>Bintang</small></div></div><div class="hero-buttons centered"><button class="btn btn-primary" id="playAgain">🔁 Main Lagi</button><button class="btn btn-secondary" data-screen="gamesScreen">Pilih Game</button></div><button class="text-button" data-screen="homeScreen">Kembali ke halaman awal</button></div>
+    </section>
+
+    <section id="adultScreen" class="screen">
+      <div class="section-heading"><button class="back-button" data-screen="homeScreen">← Kembali</button><div><span class="eyebrow">👩‍🏫 Area pendamping</span><h2>Ringkasan Belajar</h2><p>Rekap tersimpan di perangkat ini. Tidak ada nama anak yang diperlukan.</p></div></div>
+      <div class="adult-summary"><div class="summary-box"><span>🎮</span><small>Sesi selesai</small><strong id="adultSessions">0</strong></div><div class="summary-box"><span>⭐</span><small>Total poin</small><strong id="adultPoints">0</strong></div><div class="summary-box"><span>✅</span><small>Jawaban benar</small><strong id="adultCorrect">0</strong></div></div>
+      <div class="adult-panel"><div class="panel-head"><h3>Riwayat permainan</h3><div><button class="btn btn-small btn-secondary" id="exportCsv">⬇ Unduh CSV</button><button class="btn btn-small btn-danger" id="clearHistory">Hapus riwayat</button></div></div><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Permainan</th><th>Benar</th><th>Poin</th></tr></thead><tbody id="historyRows"></tbody></table></div><p class="small-note">Riwayat disimpan di browser yang digunakan. Jika cache/data browser dihapus, riwayat lokal bisa hilang.</p></div>
+    </section>
+  </main>
+  <footer><span>💛 Belajar dengan gembira, tumbuh bersama.</span><span>Petualangan Keluarga Ceria</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/config.js"></script><script src="js/audio.js"></script><script src="js/storage.js"></script><script src="js/games.js"></script><script src="js/app.js"></script>
+</body>
+</html>

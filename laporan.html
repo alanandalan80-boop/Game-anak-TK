@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7e8">
+  <title>Laporan Nilai — Ruang Ceria</title>
+  <link rel="stylesheet" href="beranda/style.css">
+  <link rel="stylesheet" href="laporan.css">
+
+<script src="ruang-ceria-config.js"></script>
+<script src="ruang-ceria-client.js"></script>
+</head>
+<body class="report-body">
+  <header class="topbar report-topbar">
+    <a class="brand" href="beranda/index.html"><span class="brand-icon">🌈</span><span>Ruang <b>Ceria</b><small>LAPORAN GURU</small></span></a>
+    <div class="topbar-actions">
+      <a class="logout-button" href="beranda/index.html">Kembali ke portal</a>
+      <button id="reportLogout" class="logout-button" type="button">Keluar ↗</button>
+    </div>
+  </header>
+  <main class="report-wrap">
+    <div class="report-heading">
+      <div><p class="eyebrow">PUSAT DATA PEMBELAJARAN</p><h1>Laporan Nilai <span>📊</span></h1>
+      <p>Ringkasan hasil dari seluruh tujuh permainan Ruang Ceria.</p></div>
+      <button id="refreshReport" class="primary-button" type="button">↻ Perbarui data</button>
+    </div>
+    <p id="reportStatus" class="report-status" role="status">Mengambil data dari Google Sheets...</p>
+    <section class="report-metrics">
+      <article><small>Total sesi tersimpan</small><strong id="metricSessions">—</strong></article>
+      <article><small>Pemain terdaftar</small><strong id="metricPlayers">—</strong></article>
+      <article><small>Total jawaban benar</small><strong id="metricCorrect">—</strong></article>
+      <article><small>Total bintang</small><strong id="metricStars">—</strong></article>
+    </section>
+    <section class="report-card">
+      <div class="report-filters">
+        <label>Filter permainan<select id="gameFilter"><option value="">Semua game</option></select></label>
+        <label>Cari pemain<input id="playerFilter" type="search" placeholder="Nama panggilan / ID pemain"></label>
+      </div>
+      <div class="table-scroll">
+        <table class="report-table">
+          <thead><tr><th>Waktu</th><th>Pemain</th><th>Kelas</th><th>Permainan</th><th>Benar</th><th>Skor</th><th>Bintang</th></tr></thead>
+          <tbody id="reportRows"><tr><td colspan="7">Memuat...</td></tr></tbody>
+        </table>
+      </div>
+      <p class="report-footnote">Data diambil dari tab Log_Permainan. ID pemain bersifat anonim dan dibuat per profil browser.</p>
+    </section>
+    <footer class="report-footer">🌼 Ruang Ceria — Belajar, bermain, bertumbuh.</footer>
+  </main>
+  <script src="laporan.js"></script>
+</body>
+</html>

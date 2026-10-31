@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7c6cf2">
+  <title>Belajar Tulis Ceria</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+<script src="../ruang-ceria-config.js"></script>
+<script src="../ruang-ceria-client.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Belajar Tulis Ceria">
+      <span class="brand-icon">✏️</span><span>Belajar Tulis <b>Ceria!</b></span>
+    </a>
+    <div class="top-actions">
+      <button class="sound-toggle" id="soundToggle" aria-pressed="true">🔊 Suara Aktif</button>
+      <div class="star-pill">⭐ <span id="totalStars">0</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeScreen" class="screen active">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">BELAJAR SAMBIL BERMAIN</span>
+          <h1>Hai, teman kecil!<br><span>Yuk belajar menulis!</span></h1>
+          <p>Ikuti garis, tulis huruf, dan kumpulkan bintang. Kamu pasti bisa! 🌈</p>
+          <button class="primary-btn big" data-open="letters">🚀 Mulai Belajar</button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="rainbow">🌈</div>
+          <div class="pencil">✏️</div><div class="book">📚</div>
+          <div class="cloud cloud-one">☁️</div><div class="cloud cloud-two">☁️</div>
+          <div class="mascot">🐻<span>Halo!</span></div>
+          <div class="sparkle sparkle-one">✦</div><div class="sparkle sparkle-two">✧</div>
+        </div>
+      </div>
+      <div class="section-heading"><div><span class="eyebrow">PILIH PETUALANGANMU</span><h2>Mau belajar apa hari ini?</h2></div></div>
+      <div class="menu-grid">
+        <button class="menu-card pink" data-open="letters"><span class="menu-emoji">🔤</span><b>Belajar Huruf</b><small>A sampai Z</small><span class="card-arrow">↗</span></button>
+        <button class="menu-card blue" data-open="numbers"><span class="menu-emoji">🔢</span><b>Belajar Angka</b><small>0 sampai 20</small><span class="card-arrow">↗</span></button>
+        <button class="menu-card yellow" data-open="words"><span class="menu-emoji">🧸</span><b>Belajar Kata</b><small>Kata sehari-hari</small><span class="card-arrow">↗</span></button>
+        <button class="menu-card green" data-open="free"><span class="menu-emoji">🎨</span><b>Gambar Bebas</b><small>Jadi seniman cilik</small><span class="card-arrow">↗</span></button>
+      </div>
+      <section class="progress-panel">
+        <div class="progress-icon">🏆</div><div class="progress-copy"><h3>Perjalanan hebatmu</h3><p id="progressSummary">Ayo mulai latihan pertamamu!</p><div class="progress-track"><span id="progressBar"></span></div></div><div class="progress-number"><b id="completedCount">0</b><small>latihan selesai</small></div>
+      </section>
+      <p class="parent-note">👨‍👩‍👧 Untuk orang tua: progres latihan disimpan di perangkat ini.</p>
+    </section>
+
+    <section id="lessonScreen" class="screen">
+      <div class="lesson-top">
+        <button class="back-btn" id="backHome">← Beranda</button>
+        <div class="lesson-category" id="lessonCategory">🔤 Belajar Huruf</div>
+        <div class="lesson-stars">⭐ <span id="lessonStars">0</span></div>
+      </div>
+      <div class="lesson-layout">
+        <aside class="picker-panel">
+          <h3 id="pickerTitle">Pilih huruf</h3><p id="pickerHelp">Ketuk huruf yang ingin kamu tulis.</p>
+          <div id="itemPicker" class="item-picker"></div>
+        </aside>
+        <section class="practice-panel">
+          <div class="practice-heading"><div><span class="eyebrow" id="practiceEyebrow">AYO MENULIS</span><h2 id="targetTitle">Huruf A</h2><p id="targetPrompt">Ikuti garis putus-putusnya, ya!</p></div><button id="speakBtn" class="round-btn" aria-label="Dengarkan">🔊</button></div>
+          <div class="canvas-wrap">
+            <canvas id="traceCanvas" aria-label="Area latihan menulis"></canvas>
+            <div class="canvas-hint" id="canvasHint">Mulai dari titik hijau, lalu ikuti garisnya ✨</div>
+          </div>
+          <div class="practice-actions">
+            <button class="soft-btn" id="showGuide">👀 Lihat Contoh</button>
+            <button class="soft-btn" id="clearCanvas">🧽 Hapus</button>
+            <button class="primary-btn" id="checkWork">⭐ Selesai!</button>
+          </div>
+          <div class="feedback" id="feedback" aria-live="polite">Kamu pasti bisa! Coba ikuti garisnya 😊</div>
+          <div class="next-row"><button id="prevItem" class="nav-btn">← Sebelumnya</button><button id="nextItem" class="nav-btn">Berikutnya →</button></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="freeScreen" class="screen">
+      <div class="lesson-top"><button class="back-btn" id="backHomeFree">← Beranda</button><div class="lesson-category">🎨 Gambar Bebas</div><div></div></div>
+      <section class="free-panel">
+        <span class="eyebrow">KREASI SESUKAMU</span><h2>Yuk, menggambar!</h2><p>Gambar apa saja yang kamu suka. Gunakan warna favoritmu!</p>
+        <div class="free-tools">
+          <label for="penColor">Warna pensil</label><input id="penColor" type="color" value="#ff668e">
+          <label for="penSize">Ukuran</label><input id="penSize" type="range" min="3" max="24" value="8">
+          <button id="undoFree" class="soft-btn">↶ Urungkan</button><button id="clearFree" class="soft-btn">🧽 Hapus semua</button>
+        </div>
+        <div class="free-canvas-wrap"><canvas id="freeCanvas" aria-label="Area menggambar bebas"></canvas></div>
+        <div class="free-bottom"><span>🌟 Karya hebat dimulai dari mencoba!</span><button id="saveDrawing" class="primary-btn">⬇️ Simpan Gambar</button></div>
+      </section>
+    </section>
+  </main>
+  <footer>🌈 Belajar Tulis Ceria · Belajar itu menyenangkan!</footer>
+
+  <div class="modal-backdrop" id="rewardModal" role="dialog" aria-modal="true" aria-labelledby="rewardTitle">
+    <div class="reward-modal"><div class="reward-confetti">🎉 ⭐ 🎉</div><div class="reward-emoji">🏆</div><h2 id="rewardTitle">Hebat sekali!</h2><p id="rewardMessage">Kamu sudah berusaha dengan baik!</p><div class="reward-stars" id="rewardStars">⭐⭐⭐</div><button class="primary-btn big" id="continueBtn">Lanjut belajar →</button></div>
+  </div>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/speech.js"></script><script src="js/tracing.js"></script><script src="js/app.js"></script>
+</body>
+</html>

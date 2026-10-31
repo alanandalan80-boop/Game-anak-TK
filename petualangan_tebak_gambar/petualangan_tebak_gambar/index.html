@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff4d9">
+  <title>Petualangan Tebak Gambar</title>
+  <link rel="stylesheet" href="css/style.css">
+
+<script src="../../ruang-ceria-config.js"></script>
+<script src="../../ruang-ceria-client.js"></script>
+</head>
+<body>
+  <div class="background-shape shape-one"></div><div class="background-shape shape-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#" id="homeBrand" aria-label="Beranda">
+      <span class="brand-icon">🌈</span><span><b>Petualangan</b><small>Tebak Gambar</small></span>
+    </a>
+    <div class="top-actions">
+      <button class="icon-button" id="soundToggle" aria-label="Aktifkan atau matikan suara">🔊 <span>Suara</span></button>
+      <div class="star-pill">⭐ <b id="totalStars">0</b></div>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section id="homeScreen" class="screen active">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">BELAJAR SAMBIL BERMAIN</span>
+          <h1>Hai, Adik!<br><span>Ayo Tebak Gambar!</span></h1>
+          <p>Yuk, kenali hewan, buah, kendaraan, dan banyak benda seru lainnya. Siap jadi anak hebat?</p>
+          <button class="primary-button" id="startButton">Mulai Bermain <span>🚀</span></button>
+          <div class="tiny-note">✨ Seru • Mudah • Gratis</div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun">☀️</div><div class="rainbow">🌈</div><div class="mascot">🦊</div>
+          <div class="cloud cloud-a">☁️</div><div class="cloud cloud-b">☁️</div>
+          <div class="floating f1">⭐</div><div class="floating f2">💛</div><div class="floating f3">🌼</div>
+        </div>
+      </div>
+      <div class="section-heading"><div><span class="eyebrow">PILIH PETUALANGANMU</span><h2>Mau belajar apa hari ini?</h2></div><span class="heading-emoji">🎒</span></div>
+      <div id="categoryGrid" class="category-grid"></div>
+      <div class="home-bottom"><span>💛 Kamu hebat karena mau belajar!</span><button class="text-button" id="howToButton">Cara bermain ❔</button></div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <div class="game-topline">
+        <button class="back-button" id="backHome">← Beranda</button>
+        <span class="category-chip" id="currentCategory">🐾 Hewan</span>
+        <span class="question-count" id="questionCount">Soal 1 dari 10</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="question-card">
+        <span class="question-kicker">AYO PERHATIKAN!</span>
+        <h2 id="questionText">Manakah gambar kucing?</h2>
+        <button class="listen-button" id="listenButton">🔊 Dengarkan pertanyaan</button>
+        <div class="picture-frame"><div id="questionPicture" class="question-picture" role="img" aria-label="Gambar pertanyaan">🐱</div><span class="picture-sparkle sparkle-a">✨</span><span class="picture-sparkle sparkle-b">✦</span></div>
+        <p class="choose-label">Pilih jawaban yang benar, ya!</p>
+        <div id="answerGrid" class="answer-grid"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <div class="game-footer"><span>⭐ Bintang: <b id="roundStars">0</b></span><button id="nextButton" class="primary-button" disabled>Soal berikutnya →</button></div>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="result-card">
+        <div class="confetti-emoji">🎉 🌟 🎈</div>
+        <div class="result-mascot">🦊</div>
+        <span class="eyebrow">PETUALANGAN SELESAI</span>
+        <h1 id="resultTitle">Hebat sekali!</h1>
+        <p id="resultMessage">Kamu sudah berusaha dengan luar biasa.</p>
+        <div class="result-stats">
+          <div><span>📝</span><b id="resultCorrect">0/0</b><small>Jawaban benar</small></div>
+          <div><span>⭐</span><b id="resultStars">0</b><small>Bintang didapat</small></div>
+          <div><span>🎯</span><b id="resultAccuracy">0%</b><small>Ketepatan</small></div>
+        </div>
+        <button class="primary-button wide-button" id="playAgainButton">Main Lagi 🎮</button>
+        <button class="secondary-button wide-button" id="chooseCategoryButton">Pilih Kategori Lain</button>
+        <p class="save-status" id="saveStatus">Hasil permainan tersimpan di perangkat ini.</p>
+      </div>
+    </section>
+
+    <section id="helpScreen" class="screen">
+      <div class="help-card">
+        <button class="back-button" id="helpBack">← Kembali</button>
+        <div class="help-illustration">🧩</div><h1>Cara Bermain</h1>
+        <div class="help-step"><span>1</span><p>Pilih kategori yang kamu suka.</p></div>
+        <div class="help-step"><span>2</span><p>Perhatikan gambar dan dengarkan pertanyaannya.</p></div>
+        <div class="help-step"><span>3</span><p>Tekan jawaban yang menurutmu benar.</p></div>
+        <div class="help-step"><span>4</span><p>Kumpulkan bintang dan bersenang-senang!</p></div>
+        <button class="primary-button wide-button" id="helpStart">Aku Siap! 🚀</button>
+      </div>
+    </section>
+  </main>
+  <footer><span>🌼 Dibuat untuk belajar dengan gembira</span><span>Petualangan Tebak Gambar</span></footer>
+  <script src="js/app.js"></script>
+</body>
+</html>

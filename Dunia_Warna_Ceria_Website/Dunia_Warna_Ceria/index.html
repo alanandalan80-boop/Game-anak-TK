@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff2b8">
+  <meta name="description" content="Game edukasi interaktif untuk mengenal macam-macam warna bagi anak TK.">
+  <title>Dunia Warna Ceria — Belajar Sambil Bermain</title>
+  <link rel="stylesheet" href="style.css">
+
+<script src="../../ruang-ceria-config.js"></script>
+<script src="../../ruang-ceria-client.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" data-page="home" aria-label="Dunia Warna Ceria, beranda">
+      <span class="brand-icon" aria-hidden="true">🌈</span>
+      <span>Dunia Warna <b>Ceria</b></span>
+    </a>
+    <div class="top-actions">
+      <button class="icon-btn" id="soundToggle" aria-pressed="true" title="Hidupkan atau matikan suara">🔊 <span>Suara</span></button>
+      <div class="star-pill" aria-label="Jumlah bintang"><span>⭐</span> <strong id="starCount">0</strong></div>
+    </div>
+  </header>
+
+  <main id="app">
+    <section id="homePage" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">PETUALANGAN BELAJAR ANAK</span>
+          <h1>Yuk, kenali<br><span>macam-macam warna!</span></h1>
+          <p>Belajar warna jadi lebih seru bersama Bimo si Pelangi. Ayo bermain dan kumpulkan bintang!</p>
+          <button class="primary-btn" data-page="learn">Mulai belajar <span>→</span></button>
+          <div class="tiny-note">🎈 Mudah • Menyenangkan • Gratis</div>
+        </div>
+        <div class="hero-art" aria-label="Ilustrasi pelangi ceria">
+          <div class="sun">☀️</div><div class="cloud cloud-one">☁️</div><div class="cloud cloud-two">☁️</div>
+          <div class="rainbow"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="mascot">😊<small>Hai, aku Bimo!</small></div>
+          <span class="floaty f1">✦</span><span class="floaty f2">●</span><span class="floaty f3">✿</span>
+        </div>
+      </div>
+      <h2 class="section-title">Pilih petualanganmu!</h2>
+      <div class="activity-grid">
+        <button class="activity-card card-pink" data-page="learn"><span class="activity-icon">🎨</span><strong>Belajar Warna</strong><small>Kenali warna satu per satu</small><span class="card-arrow">Ayo belajar →</span></button>
+        <button class="activity-card card-blue" data-page="guess"><span class="activity-icon">🧠</span><strong>Tebak Warna</strong><small>Pilih warna yang benar</small><span class="card-arrow">Mulai bermain →</span></button>
+        <button class="activity-card card-yellow" data-page="objects"><span class="activity-icon">🍎</span><strong>Cari Benda</strong><small>Temukan benda sesuai warna</small><span class="card-arrow">Cari benda →</span></button>
+        <button class="activity-card card-green" data-page="coloring"><span class="activity-icon">🖍️</span><strong>Ayo Mewarnai</strong><small>Buat gambar jadi ceria</small><span class="card-arrow">Mewarnai →</span></button>
+      </div>
+      <div class="home-bottom"><span>🌟</span><div><strong>Setiap usaha itu hebat!</strong><p>Terus mencoba dan nikmati proses belajarmu.</p></div><button class="soft-btn" data-page="parent">Area Guru / Orang Tua</button></div>
+    </section>
+
+    <section id="learnPage" class="page">
+      <div class="page-heading"><button class="back-btn" data-page="home">← Beranda</button><div><span class="eyebrow">KENALI WARNA</span><h1>Warna di sekitar kita</h1><p>Tekan kartu untuk mendengar nama warnanya.</p></div></div>
+      <div class="color-grid" id="colorGrid"></div>
+      <div class="learn-detail" id="learnDetail"><span class="detail-emoji">🌈</span><div><strong>Pilih kartu warna!</strong><p>Kita akan belajar bersama.</p></div><button class="primary-btn" id="learnSpeak">🔊 Dengarkan</button></div>
+    </section>
+
+    <section id="guessPage" class="page game-page">
+      <div class="page-heading"><button class="back-btn" data-page="home">← Beranda</button><div><span class="eyebrow">GAME 1</span><h1>Tebak Warna</h1><p>Perhatikan pertanyaan, lalu pilih jawabanmu.</p></div></div>
+      <div class="game-panel">
+        <div class="progress-line"><span id="guessProgress">Soal 1 dari 5</span><span id="guessScore">Benar: 0</span></div>
+        <div class="question-box"><div class="question-emoji" id="guessEmoji">🎈</div><h2 id="guessQuestion">Mana warna merah?</h2><p>Sentuh salah satu warna di bawah ini.</p></div>
+        <div class="answer-grid" id="guessAnswers"></div>
+        <div class="feedback" id="guessFeedback" role="status" aria-live="polite"></div>
+        <button class="primary-btn hidden" id="guessNext">Soal berikutnya →</button>
+      </div>
+    </section>
+
+    <section id="objectsPage" class="page game-page">
+      <div class="page-heading"><button class="back-btn" data-page="home">← Beranda</button><div><span class="eyebrow">GAME 2</span><h1>Cari Benda</h1><p>Ayo cari benda yang cocok dengan warna yang diminta!</p></div></div>
+      <div class="game-panel">
+        <div class="progress-line"><span id="objectProgress">Tantangan 1 dari 5</span><span id="objectScore">Benar: 0</span></div>
+        <div class="question-box"><div class="target-color" id="objectTarget"></div><h2 id="objectQuestion">Cari benda berwarna kuning!</h2></div>
+        <div class="object-grid" id="objectAnswers"></div>
+        <div class="feedback" id="objectFeedback" role="status" aria-live="polite"></div>
+        <button class="primary-btn hidden" id="objectNext">Tantangan berikutnya →</button>
+      </div>
+    </section>
+
+    <section id="coloringPage" class="page">
+      <div class="page-heading"><button class="back-btn" data-page="home">← Beranda</button><div><span class="eyebrow">GAME 3</span><h1>Ayo Mewarnai!</h1><p>Pilih warna, lalu sentuh bagian gambar yang ingin kamu warnai.</p></div></div>
+      <div class="coloring-layout">
+        <div class="canvas-wrap">
+          <svg id="coloringSvg" viewBox="0 0 520 360" role="img" aria-label="Gambar rumah, matahari, awan dan bunga untuk diwarnai">
+            <path class="paintable" fill="#ffffff" d="M75 160 L190 65 L305 160 L305 300 L75 300 Z" data-part="Rumah"/>
+            <path class="paintable" fill="#ffffff" d="M55 165 L190 45 L325 165 L300 180 L190 82 L80 180 Z" data-part="Atap"/>
+            <rect class="paintable" x="105" y="195" width="55" height="55" rx="4" fill="#ffffff" data-part="Jendela kiri"/>
+            <path d="M132 195 V250 M105 222 H160" stroke="#6b7280" stroke-width="5" pointer-events="none"/>
+            <rect class="paintable" x="215" y="205" width="48" height="95" rx="4" fill="#ffffff" data-part="Pintu"/>
+            <circle cx="251" cy="253" r="4" fill="#6b7280" pointer-events="none"/>
+            <circle class="paintable" cx="420" cy="70" r="36" fill="#ffffff" data-part="Matahari"/>
+            <g stroke="#6b7280" stroke-width="5" stroke-linecap="round" pointer-events="none"><path d="M420 20 V10 M420 120 V130 M370 70 H360 M470 70 H480 M385 35 L377 27 M455 105 L463 113 M455 35 L463 27 M385 105 L377 113"/></g>
+            <path class="paintable" fill="#ffffff" d="M355 175 C335 150 355 125 380 140 C395 115 430 130 425 153 C455 140 475 165 455 185 Z" data-part="Awan"/>
+            <path class="paintable" fill="#ffffff" d="M385 285 C360 265 365 240 390 240 C400 215 430 225 432 247 C455 245 465 270 445 285 Z" data-part="Bunga"/>
+            <path class="paintable" fill="#ffffff" d="M405 280 Q400 310 410 330" stroke="#6b7280" stroke-width="6" data-part="Batang bunga"/>
+            <path class="paintable" fill="#ffffff" d="M405 307 Q380 285 375 305 Q390 322 405 315 Z" data-part="Daun bunga"/>
+            <circle class="paintable" cx="405" cy="258" r="12" fill="#ffffff" data-part="Tengah bunga"/>
+            <path d="M20 320 Q130 300 220 322 T500 320" stroke="#a7d88c" stroke-width="8" fill="none" stroke-linecap="round" pointer-events="none"/>
+          </svg>
+          <div class="canvas-hint" id="paintHint">Warna pilihan: Merah</div>
+        </div>
+        <aside class="palette-panel"><h2>Pilih warna</h2><div class="palette" id="palette"></div><div class="selected-label" id="selectedColor">Merah dipilih</div><button class="soft-btn full" id="resetPaint">↻ Ulangi gambar</button><button class="primary-btn full" id="finishPaint">Selesai! ⭐</button></aside>
+      </div>
+      <p class="gentle-note">Tidak ada warna yang salah saat berkreasi. Yang penting, kamu bersenang-senang! 😊</p>
+    </section>
+
+    <section id="parentPage" class="page">
+      <div class="page-heading"><button class="back-btn" data-page="home">← Beranda</button><div><span class="eyebrow">KHUSUS PENDAMPING</span><h1>Area Guru / Orang Tua</h1><p>Ringkasan belajar tersimpan di perangkat ini dan dapat disinkronkan ke Google Sheets.</p></div></div>
+      <div class="parent-grid">
+        <div class="stat-card"><span>⭐</span><small>Total bintang</small><strong id="parentStars">0</strong></div>
+        <div class="stat-card"><span>🎮</span><small>Permainan selesai</small><strong id="parentGames">0</strong></div>
+        <div class="stat-card"><span>✅</span><small>Jawaban benar</small><strong id="parentCorrect">0</strong></div>
+      </div>
+      <div class="settings-card">
+        <h2>Sinkronisasi Google Sheets</h2>
+        <p>Masukkan URL Web App Google Apps Script milikmu. URL hanya disimpan di browser ini.</p>
+        <label for="scriptUrl">Endpoint sinkronisasi pusat</label><input id="scriptUrl" type="text" value="/api/game-result" readonly>
+        <div class="settings-actions"><button class="primary-btn" id="saveUrl">Simpan URL</button><button class="soft-btn" id="syncNow">Kirim data tertunda</button></div>
+        <p class="small-status" id="syncStatus" role="status">Belum dikonfigurasi.</p>
+        <h2>Riwayat permainan</h2><div id="historyList" class="history-list"></div>
+        <button class="soft-btn danger" id="clearData">Hapus data lokal</button>
+      </div>
+      <p class="privacy-note">Gunakan tanpa nama lengkap anak. Area ini adalah pengaturan sederhana, bukan sistem autentikasi yang kuat. Untuk penggunaan publik, lindungi akses laporan di sisi server.</p>
+    </section>
+  </main>
+
+  <footer><span>🌈 Dunia Warna Ceria</span><span>Belajar sambil bermain dengan gembira</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

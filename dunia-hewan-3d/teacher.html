@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Area Guru — Dunia Hewan 3D</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+<script src="../ruang-ceria-config.js"></script>
+<script src="../ruang-ceria-client.js"></script>
+</head>
+<body class="teacher-body">
+  <header class="topbar"><a class="brand" href="index.html"><span class="brand-icon">🦁</span><span>Dunia Hewan <small>Area Guru</small></span></a><div class="top-actions"><a class="teacher-link" href="index.html">← Kembali ke game</a></div></header>
+  <main class="teacher-main">
+    <section id="loginPanel" class="login-card">
+      <div class="login-emoji">👩‍🏫</div><span class="eyebrow">AREA KHUSUS PENDIDIK</span><h1>Selamat datang, Guru!</h1>
+      <p>Masuk menggunakan email Google yang memiliki akses ke backend Apps Script yang dikonfigurasi.</p>
+      <label for="teacherEmail">Email guru</label><input id="teacherEmail" type="email" placeholder="guru@sekolah.sch.id" autocomplete="username">
+      <label for="teacherToken">Kode akses guru</label><input id="teacherToken" type="password" placeholder="Masukkan kode akses" autocomplete="current-password">
+      <button id="loginButton" class="btn btn-primary full">Masuk ke dashboard</button>
+      <p class="small-note">Mode demo: isi email apa saja dan kode <b>DEMO-GURU</b>. Mode demo hanya memakai data contoh lokal dan bukan autentikasi produksi.</p>
+      <p id="loginError" class="error-text" hidden></p>
+    </section>
+    <section id="dashboardPanel" hidden>
+      <div class="section-heading"><div><span class="eyebrow">RINGKASAN PEMBELAJARAN</span><h1>Dashboard Guru 📊</h1><p>Pantau kegiatan belajar siswa dengan data yang tersimpan.</p></div><button class="btn btn-light" id="logoutButton">Keluar</button></div>
+      <div class="notice" id="dataModeNotice">Mode demo: data di bawah adalah contoh. Hubungkan Apps Script untuk melihat data nyata.</div>
+      <div class="metric-grid">
+        <article class="metric-card"><span>👧 Siswa aktif</span><strong id="metricStudents">0</strong><small>Profil siswa terdaftar</small></article>
+        <article class="metric-card"><span>🎮 Sesi permainan</span><strong id="metricSessions">0</strong><small>Total sesi tercatat</small></article>
+        <article class="metric-card"><span>🎯 Rata-rata benar</span><strong id="metricAccuracy">0%</strong><small>Dari soal yang dijawab</small></article>
+        <article class="metric-card"><span>⭐ Total bintang</span><strong id="metricStars">0</strong><small>Akumulasi skor demo/tercatat</small></article>
+      </div>
+      <div class="dashboard-columns">
+        <section class="panel"><div class="panel-heading"><h2>Hasil terbaru</h2><button id="refreshButton" class="text-button">↻ Muat ulang</button></div><div class="table-scroll"><table><thead><tr><th>Tanggal</th><th>Siswa</th><th>Permainan</th><th>Benar</th><th>Skor</th></tr></thead><tbody id="resultsBody"></tbody></table></div></section>
+        <section class="panel"><h2>Ringkasan permainan</h2><div id="gameBreakdown" class="breakdown"></div><p class="small-note">Persentase dihitung dari sesi yang tersedia. Gunakan laporan sebagai bahan pendampingan, bukan satu-satunya penilaian anak.</p></section>
+      </div>
+      <section class="panel report-panel"><div class="panel-heading"><div><h2>Laporan hasil belajar</h2><p>Filter dan unduh data dalam format CSV.</p></div><button id="exportButton" class="btn btn-primary">⬇ Ekspor CSV</button></div>
+        <div class="filters"><label>Nama siswa<input id="filterStudent" placeholder="Cari nama"></label><label>Permainan<select id="filterGame"><option value="">Semua permainan</option></select></label></div>
+        <div class="table-scroll"><table><thead><tr><th>Tanggal</th><th>Siswa</th><th>Permainan</th><th>Soal</th><th>Benar</th><th>Akurasi</th><th>Skor</th></tr></thead><tbody id="reportBody"></tbody></table></div>
+      </section>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/config.js"></script><script src="js/teacher.js"></script>
+</body>
+</html>
